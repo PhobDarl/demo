@@ -31,7 +31,7 @@ dependencies {
 
 xjc {
     useJakarta.set(true)
-    defaultPackage.set("com.example.football.generated")  // your own package
+    defaultPackage.set("com.example.demo.generated")  // your own package
 }
 
 tasks.named('test') {
