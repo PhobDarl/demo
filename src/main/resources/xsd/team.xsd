@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="https://www.phobdarl.com/xml/football"
+           targetNamespace="https://www.phobdarl.com/xml/football"
+           elementFormDefault="qualified">
+    <!-- Request that comes from the client -->
+    <xs:element name="teamNameRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="teamname" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response sent to the client -->
+    <xs:element name="teamNameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Team" type="xs:string"/>
+                <xs:element name="leaguePosition" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
