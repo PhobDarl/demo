@@ -14,4 +14,8 @@ public class helloWorldController {
         return "home";
     }
 
+    @GetMapping("/teams")
+    public String teams(){
+        return "teams";
+    }
 }
