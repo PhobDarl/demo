@@ -19,7 +19,6 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="done" type="xs:boolean"/>
-
             </xs:sequence>
         </xs:complexType>
     </xs:element>

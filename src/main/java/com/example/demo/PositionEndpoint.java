@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.generated.TeamNameRequest;
-import com.example.demo.generated.TeamNameResponse;
+import com.example.demo.generated.EnterScoresRequest;
+import com.example.demo.generated.EnteredScoresResponse;
 
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -12,19 +12,17 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class PositionEndpoint {
 
-    @PayloadRoot(namespace = "https://www.phobdarl.com/xml/football", localPart = "teamNameRequest")
+    @PayloadRoot(namespace = "https://www.phobdarl.com/xml/football", localPart = "enterScoresRequest")
     @ResponsePayload
-    public TeamNameResponse setGame(@RequestPayload TeamNameRequest request){
+    public EnteredScoresResponse setGame(@RequestPayload EnterScoresRequest request){
 
         int position;
-        if (request.getTeamname().equalsIgnoreCase("tottenham")){
-            position = 1;
-        } else {
-            position = 12;
-        }
+        int homeTeamScore = request.getHomeGoals();
+        int awayTeamScore = request.getAwayGoals();
 
-        TeamNameResponse resp = new TeamNameResponse();
-        resp.setLeaguePosition(position);
+        EnteredScoresResponse resp = new EnteredScoresResponse();
+        resp.setDone(true);
+        
         return resp;
     }
 }
