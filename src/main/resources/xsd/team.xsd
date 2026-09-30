@@ -18,7 +18,7 @@
     <xs:element name="enteredScoresResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="done" p,.
+                <xs:element name="done" type="xs:boolean"/>
 
             </xs:sequence>
         </xs:complexType>
