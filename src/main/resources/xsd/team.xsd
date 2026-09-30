@@ -2,21 +2,24 @@
            xmlns:tns="https://www.phobdarl.com/xml/football"
            targetNamespace="https://www.phobdarl.com/xml/football"
            elementFormDefault="qualified">
-    <!-- Request that comes from the client -->
-    <xs:element name="teamNameRequest">
+    <!-- Request that comes from the client, putting in scores -->
+    <xs:element name="enterScoresRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="teamname" type="xs:string"/>
+                <xs:element name="homeTeam" type="xs:string"/>
+                <xs:element name="awayTeam" type="xs:string"/>
+                <xs:element name="homeGoals" type="xs:int"/>
+                <xs:element name="awayGoals" type="xs:int"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
     <!-- Response sent to the client -->
-    <xs:element name="teamNameResponse">
+    <xs:element name="enteredScoresResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Team" type="xs:string"/>
-                <xs:element name="leaguePosition" type="xs:int"/>
+                <xs:element name="done" p,.
+
             </xs:sequence>
         </xs:complexType>
     </xs:element>

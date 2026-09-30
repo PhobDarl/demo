@@ -14,7 +14,7 @@ public class PositionEndpoint {
 
     @PayloadRoot(namespace = "https://www.phobdarl.com/xml/football", localPart = "teamNameRequest")
     @ResponsePayload
-    public TeamNameResponse getPosition(@RequestPayload TeamNameRequest request){
+    public TeamNameResponse setGame(@RequestPayload TeamNameRequest request){
 
         int position;
         if (request.getTeamname().equalsIgnoreCase("tottenham")){
