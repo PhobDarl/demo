@@ -1,4 +1,31 @@
 <html lang="en">
+<nav>
+    <a href="/">Home</a> |
+</nav>
+
+<table>
+<thead>
+<tr>
+    <th>
+        Position
+    </th>
+    <th>
+        Team Name
+    </th>
+</tr>
+</thead>
+<tbody id = "teamTable">
+<tr th:each="team: ${teams}">
+    <td>
+        <a th:text="${team.id}" th:href="@{/}"></a>
+    </td>
+    <td th:text="${team.teamName}"></td>
+</tr>
+
+
+</tbody>
+
+</table>
 <head> <title> Teams </title></head>
 <body>This is where the teams display page will be </body>
 </html>
