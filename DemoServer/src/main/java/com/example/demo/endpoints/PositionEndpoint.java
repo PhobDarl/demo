@@ -3,7 +3,7 @@ package com.example.demo.endpoints;
 import com.example.demo.generated.EnterScoresRequest;
 import com.example.demo.generated.EnteredScoresResponse;
 
-import com.example.demo.services.CalcAndStoreWinner;
+import com.example.demo.services.GamesService;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -20,7 +20,7 @@ public class PositionEndpoint {
         int position;
         int homeTeamScore = request.getHomeGoals();
         int awayTeamScore = request.getAwayGoals();
-        boolean done = CalcAndStoreWinner.calculateWinner(request);
+        boolean done = GamesService.recordGame(request);
 
         // need to calc winner and call a function to store in db here
         EnteredScoresResponse resp = new EnteredScoresResponse();

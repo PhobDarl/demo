@@ -17,10 +17,10 @@ public class Games {
     private String awayTeam;
 
     @Column(name = "homeGoals")
-    private String homeGoals;
+    private int homeGoals;
 
     @Column(name = "awayGoals")
-    private String awayGoals;
+    private int awayGoals;
 
 
     public long getGameId(){
@@ -35,15 +35,15 @@ public class Games {
         return awayTeam;
     }
 
-    public String getAwayGoals() {
+    public int getAwayGoals() {
         return awayGoals;
     }
 
-    public String getHomeGoals() {
+    public int getHomeGoals() {
         return homeGoals;
     }
 
-    public void setAwayGoals(String awayGoals) {
+    public void setAwayGoals(int awayGoals) {
         this.awayGoals = awayGoals;
     }
 
@@ -55,7 +55,7 @@ public class Games {
         this.gameId = gameId;
     }
 
-    public void setHomeGoals(String homeGoals) {
+    public void setHomeGoals(int homeGoals) {
         this.homeGoals = homeGoals;
     }
 
