@@ -13,6 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class helloWorldController {
 
+    private final GamesService gamesService;
+    private final TeamsService teamsService;
+
+    public helloWorldController(GamesService gamesService, TeamsService teamsService){
+        this.gamesService = gamesService;
+        this.teamsService = teamsService;
+    }
     @GetMapping("/")
     public String home(){
         return "home";
@@ -20,7 +27,7 @@ public class helloWorldController {
 
     @GetMapping("/teams")
     public String teams(Model model){
-        model.addAttribute("teams", TeamsService.getAllTeams());
+        model.addAttribute("teams", teamsService.getAllTeams());
 
         return "teams";
     }
@@ -28,7 +35,7 @@ public class helloWorldController {
     @GetMapping("/teams/{id}")
     public String teams(@PathVariable long id, Model model){
 
-        model.addAttribute("games", GamesService.getGamesByTeam(id));
+        model.addAttribute("games", gamesService.getGamesByTeam(id));
 
         return "games";
     }

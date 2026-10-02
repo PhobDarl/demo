@@ -17,7 +17,7 @@
 <tbody id = "teamTable">
 <tr th:each="team: ${teams}">
     <td>
-        <a th:text="${team.id}" th:href="@{/${team.id}}"></a>
+        <a th:text="${team.id}" th:href="@{/teams/{id}(id=${team.id})}"></a>
     </td>
     <td th:text="${team.teamName}"></td>
 </tr>

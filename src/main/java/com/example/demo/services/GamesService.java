@@ -19,17 +19,23 @@ public class GamesService {
         this.teamRepo = teamRepo;
     }
 
-    public static List<Games> getGamesByTeam(Long id){
+    public List<Games> getGamesByTeam(Long id){
         // id gets passed in by browser so have that, find team name
         String teamName = teamRepo.getReferenceById(id).getTeamName();
-
+        System.out.println(teamName);
         // find every game where team was home team
         List<Games> homeTeamList = gamesRepo.findAllByHomeTeam(teamName);
         List<Games> awayTeamList = gamesRepo.findAllByAwayTeam(teamName);
 
-         homeTeamList.addAll(awayTeamList);
+        homeTeamList.addAll(awayTeamList);
 
-         return homeTeamList;
+        for (Games game : homeTeamList){
+            System.out.println(game.getAwayGoals());
+        }
+
+
+
+        return homeTeamList;
 
     }
 
