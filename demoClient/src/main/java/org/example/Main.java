@@ -15,16 +15,20 @@ public class Main {
         FootballPort port = serv.getFootballPortSoap11();
 
         // get all the teams and populate a list for later use
-        List<TeamXSD> teams = getAllTeams(port);
+        List<TeamXSD> teams = fetchTeams(port);
         List<String> justNames = new ArrayList<String>();
         List<String> justIds = new ArrayList<String>();
+        for (TeamXSD team : teams) {
+            justNames.add(team.getName());
+            justIds.add(String.valueOf(team.getId()));
+        }
 
         while(true) {
             int decision = menuPage();
 
             // 1 means show teams
             if (decision == 1){
-                getAllTeams(teams);
+                displayTeams(justNames, justIds);
                 // send a request
             } else if (decision == 2){
                 EnterScoresRequest request = new EnterScoresRequest();
@@ -48,31 +52,32 @@ public class Main {
         }
     }
 
-    public static int menuPage(){
-        while(True) {
-            System.out.println("Welcome to the worlds best Football Games Display and Inputer \\ Please choose from the following options:\\" +
-                    "1. Show List of Teams \\ 2. Input a new Game \\3.Quit");
-            Scanner sc = new Scanner(System.in);
-            boolean valid = false;
-            while (valid) {
-                try {
-                    Int decision = Integer.parseInt(sc.nextLine());
-                } catch (exception e) {
-                    System.out.println("Enter a number, try again")
+    public static int menuPage() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\nWelcome to the world's best Football Games Display and Inputter");
+            System.out.println("Please choose from the following options:");
+            System.out.println("1. Show list of teams\n2. Input a new game\n3. Quit");
+            try {
+                int decision = Integer.parseInt(sc.nextLine().trim());
+                if (decision >= 1 && decision <= 3) {
+                    return decision;
                 }
-            }
-            if (1 <= decision <= 3) {
-                return decision
+                System.out.println("Please pick 1, 2 or 3.");
+            } catch (NumberFormatException e) {
+                System.out.println("Enter a number, try again");
             }
         }
-
-        public static void displayTeams(FootballPort port){
-
-        }
-
-
-
     }
+
+    public static void displayTeams (List<String> justNames, List<String> justIds ){
+        System.out.println("LIST OF TEAMS TO CHOOSE FROM:  ");
+        for (int i = 0 ; i < justNames.size() ; i ++) {
+            System.out.println(justIds.get(i) + "     " + justNames.get(i));
+        }
+    }
+
+
 
     public static List<String> userInput(List<String> justNames){
         List <String> detailsToSend = new ArrayList<String>();
@@ -107,13 +112,13 @@ public class Main {
         return detailsToSend;
     }
 
-    public static List<TeamXSD> getAllTeams(List<TeamXSD> teams){
-        System.out.println("LIST OF TEAMS TO CHOOSE FROM:  ");
-        for (TeamXSD team : teams){
-            justNames.add(team.getName());
-            justIds.add(String.valueOf(team.getId()));
-            System.out.println(team.getId() + "     " + team.getName());
+    public static List<TeamXSD> fetchTeams( FootballPort port){
+            GetTeamsRequest req = new GetTeamsRequest();
+            req.setHowMany("all");
+
+            GetTeamsResponse resp = port.getTeams(req);
+            return resp.getTeams();
+
         }
 
-    }
 }
