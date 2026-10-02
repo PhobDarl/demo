@@ -61,6 +61,10 @@ compileJava {
 application{
     mainClass = 'org.example.Main'
 }
+
+run {
+    standardInput = System.in
+}
 test {
     useJUnitPlatform()
 }

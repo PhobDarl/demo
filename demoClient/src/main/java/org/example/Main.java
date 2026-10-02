@@ -3,6 +3,7 @@ package org.example;
 import org.example.generated.*;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,12 +23,27 @@ public class Main {
         for (TeamXSD team : teams){
             System.out.println(team.getId() + "     " + team.getName());
         }
+        // should convert TeamsXSD into a key value pair so can easily check if teams exist
+        // could also give user ooption to enter by id or team name
+        // thisll do for now
+        //
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the home team");
+        String homeTeamInp = sc.nextLine();
+        System.out.println("Enter the away team");
+        String awayTeamInp = sc.nextLine();
+        System.out.println("Enter the home goals");
+        int homeGoalsInp = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the away goals");
+        int awayGoalsInp = Integer.parseInt(sc.nextLine());
 
 
-        request.setAwayGoals(3);
-        request.setHomeGoals(5);
-        request.setHomeTeam("Arsenal");
-        request.setAwayTeam("Chelsea");
+
+
+        request.setAwayGoals(awayGoalsInp);
+        request.setHomeGoals(homeGoalsInp);
+        request.setHomeTeam(homeTeamInp);
+        request.setAwayTeam(awayTeamInp);
 
         EnterScoresResponse response = port.enterScores(request);
 
