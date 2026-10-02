@@ -1,7 +1,7 @@
 package com.example.demo.endpoints;
 
 import com.example.demo.generated.EnterScoresRequest;
-import com.example.demo.generated.EnteredScoresResponse;
+import com.example.demo.generated.EnterScoresResponse;
 
 import com.example.demo.services.GamesService;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -21,7 +21,7 @@ public class PositionEndpoint {
 
     @PayloadRoot(namespace = "https://www.phobdarl.com/xml/football", localPart = "enterScoresRequest")
     @ResponsePayload
-    public EnteredScoresResponse setGame(@RequestPayload EnterScoresRequest request){
+    public EnterScoresResponse setGame(@RequestPayload EnterScoresRequest request){
 
         int position;
         int homeTeamScore = request.getHomeGoals();
@@ -29,9 +29,11 @@ public class PositionEndpoint {
         boolean done = gServ.recordGame(request);
 
         // need to calc winner and call a function to store in db here
-        EnteredScoresResponse resp = new EnteredScoresResponse();
-        resp.setDone(true);
+        EnterScoresResponse resp = new EnterScoresResponse();
+        resp.setDone(done);
 
         return resp;
     }
+
+
 }

@@ -37,11 +37,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnteredScoresResponse }
+     * Create an instance of {@link EnterScoresResponse }
      * 
      */
-    public EnteredScoresResponse createEnteredScoresResponse() {
-        return new EnteredScoresResponse();
+    public EnterScoresResponse createEnterScoresResponse() {
+        return new EnterScoresResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetTeamsRequest }
+     * 
+     */
+    public GetTeamsRequest createGetTeamsRequest() {
+        return new GetTeamsRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetTeamsResponse }
+     * 
+     */
+    public GetTeamsResponse createGetTeamsResponse() {
+        return new GetTeamsResponse();
+    }
+
+    /**
+     * Create an instance of {@link Team }
+     * 
+     */
+    public Team createTeam() {
+        return new Team();
     }
 
 }

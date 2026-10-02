@@ -15,10 +15,36 @@
     </xs:element>
 
     <!-- Response sent to the client -->
-    <xs:element name="enteredScoresResponse">
+    <xs:element name="enterScoresResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="done" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="team">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getTeamsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="howMany" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTeamsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="teams"
+                            type="tns:team"
+                            minOccurs="0"
+                            maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
