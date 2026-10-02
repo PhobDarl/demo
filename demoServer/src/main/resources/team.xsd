@@ -1,0 +1,52 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="https://www.phobdarl.com/xml/football"
+           targetNamespace="https://www.phobdarl.com/xml/football"
+           elementFormDefault="qualified">
+    <!-- Request that comes from the client, putting in scores -->
+    <xs:element name="enterScoresRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="homeTeam" type="xs:string"/>
+                <xs:element name="awayTeam" type="xs:string"/>
+                <xs:element name="homeGoals" type="xs:int"/>
+                <xs:element name="awayGoals" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response sent to the client -->
+    <xs:element name="enterScoresResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="done" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="teamXSD">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getTeamsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="howMany" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTeamsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="teams"
+                            type="tns:teamXSD"
+                            minOccurs="0"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

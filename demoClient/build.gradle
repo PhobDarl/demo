@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+
+configurations {
+    jaxwsTools
+}
+
+dependencies {
+    implementation 'com.sun.xml.ws:jaxws-rt:4.0.5'
+    jaxwsTools 'com.sun.xml.ws:jaxws-tools:4.0.5'
+    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+def generatedSourcesDirectory =
+        layout.buildDirectory.dir('generated/sources/wsimport')
+
+tasks.register('wsimport', JavaExec) {
+    group = "soap"
+
+    classpath = configurations.jaxwsTools
+    mainClass = 'com.sun.tools.ws.WsImport'
+
+    doFirst {
+        generatedSourcesDirectory.get().asFile.mkdirs()
+    }
+
+    args(
+            '-keep',
+            '-Xnocompile',
+            '-s', generatedSourcesDirectory.get().asFile.absolutePath,
+            '-p', 'org.example.generated',
+            file('src/main/resources/football.wsdl').absolutePath
+    )
+}
+
+sourceSets {
+    main{
+        java{
+            srcDir generatedSourcesDirectory
+        }
+    }
+}
+
+compileJava {
+    dependsOn tasks.named('wsimport')
+}
+
+application{
+    mainClass = 'org.example.Main'
+}
+test {
+    useJUnitPlatform()
+}

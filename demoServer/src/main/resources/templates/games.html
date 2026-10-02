@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game List</title>
+</head>
+<body>
+<nav>
+  <a href="/">Home</a> |
+</nav>
+
+<table>
+  <thead>
+  <tr>
+    <th>
+      Home Team
+    </th>
+    <th>
+      Away Team
+    </th>
+    <th>
+      Home Goals
+    </th>
+    <th>
+      Away Goals
+    </th>
+  </tr>
+  </thead>
+  <tbody id = "teamTable">
+  <tr th:each="game: ${games}">
+    <td th:text="${game.homeTeam}"></td>
+    <td th:text="${game.awayTeam}"></td>
+    <td th:text="${game.homeGoals}"></td>
+    <td th:text="${game.awayGoals}"></td>
+  </tr>
+
+
+  </tbody>
+
+</table>
+
+</body>
+</html>
