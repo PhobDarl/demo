@@ -85,9 +85,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while( !valid) {
             System.out.println("Enter the home team");
-            String homeTeamInp = sc.nextLine();
+            String homeTeamInp = sc.nextLine().trim();
             System.out.println("Enter the away team");
-            String awayTeamInp = sc.nextLine();
+            String awayTeamInp = sc.nextLine().trim();
             System.out.println("Enter the home goals");
             String homeGoalsInp = sc.nextLine();
             System.out.println("Enter the away goals");

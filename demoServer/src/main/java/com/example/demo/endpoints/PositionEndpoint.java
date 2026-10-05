@@ -1,6 +1,7 @@
 package com.example.demo.endpoints;
 
 import com.example.demo.entities.Team;
+import com.example.demo.entities.Games;
 import com.example.demo.generated.*;
 
 import com.example.demo.services.GamesService;
@@ -27,15 +28,28 @@ public class PositionEndpoint {
     public EnterScoresResponse setGame(@RequestPayload EnterScoresRequest request){
 
         int position;
-        int homeTeamScore = request.getHomeGoals();
-        int awayTeamScore = request.getAwayGoals();
-        boolean done = gServ.recordGame(request);
+        Games game = new Games();
+        game.setHomeTeam(request.getHomeTeam());
+        game.setAwayTeam(request.getAwayTeam());
+        game.setHomeGoals(request.getHomeGoals());
+        game.setAwayGoals(request.getAwayGoals());
 
-        // need to calc winner and call a function to store in db here
+        boolean exists = gServ.checkIfGameExists(game);
+        System.out.println(exists);
         EnterScoresResponse resp = new EnterScoresResponse();
-        resp.setDone(done);
+        boolean done = false;
 
+        if (!exists){
+            done = gServ.recordGame(request);
+        }
+
+        resp.setDone(done);
         return resp;
+
+
+
+
+
     }
 
     @PayloadRoot(namespace ="https://www.phobdarl.com/xml/football", localPart = "getTeamsRequest")

@@ -19,7 +19,34 @@ public class GamesService {
         this.teamRepo = teamRepo;
     }
 
+    List<Games> getGamesByTeamName(String name){
+        List<Games> gamesHome;
+        List<Games> gamesAway;
+        gamesHome = gamesRepo.findAllByHomeTeam(name);
+        gamesAway = gamesRepo.findAllByAwayTeam(name);
+
+        for ( Games game : gamesAway){
+            gamesHome.add(game);
+        }
+        return gamesHome;
+    }
+
+    public boolean checkIfGameExists(Games gameToCheck){
+        String homeTeam = gameToCheck.getHomeTeam();
+        String awayTeam = gameToCheck.getAwayTeam();
+
+        List<Games> allTeams = getGamesByTeamName(homeTeam);
+        for (Games game : allTeams){
+            System.out.println(game.getHomeTeam() + "   " + game.getAwayTeam());
+            if (homeTeam.equals(game.getHomeTeam()) && awayTeam.equals(game.getAwayTeam())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<Games> getGamesByTeam(Long id){
+
         // id gets passed in by browser so have that, find team name
         String teamName = teamRepo.getReferenceById(id).getTeamName();
         System.out.println(teamName);
