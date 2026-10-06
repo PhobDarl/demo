@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.example.demo.services.TableRow;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -26,7 +27,11 @@ public class helloWorldController {
         this.teamsService = teamsService;
     }
     @GetMapping("/")
-    public String home(){
+    public String home(Model model){
+
+        List<TableRow> table = gamesService.getLeagueTable();
+        model.addAttribute("leagueTable", table);
+
         return "home";
     }
 

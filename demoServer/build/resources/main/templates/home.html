@@ -1,14 +1,50 @@
 
 
 <html lang="en">
-<nav>
-    <a href="/teams">Teams Page</a> |
-</nav>
+<div th:replace="fragments/header :: header"></div>
+<table>
+    <thead>
+    <tr>
+        <th>
+            Team Name
+        </th>
+        <th>
+            Played
+        </th>
+        <th>
+            Losses
+        </th>
+        <th>
+            Draws
+        </th>
+        <th>
+            Wins
+        </th>
+        <th>
+            Points
+        </th>
+    </tr>
+    </thead>
+    <tbody id = "teamTable">
+    <tr th:each="team: ${leagueTable}">
+        <td th:text="${team.teamName}"></td>
+        <td th:text="${team.played}"></td>
+        <td th:text="${team.losses}"></td>
+        <td th:text="${team.draws}"></td>
+        <td th:text="${team.wins}"></td>
+        <td th:text="${team.points}"></td>
+    </tr>
+
+
+    </tbody>
+
+</table>
 <head>
     <title>Football</title>
 </head>
+
 <body>
-This is where the League table will be
+
 
 </body>
 

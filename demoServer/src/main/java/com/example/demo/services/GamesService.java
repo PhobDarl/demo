@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.entities.Games;
 import com.example.demo.entities.Team;
+import com.example.demo.services.TableRow;
 import com.example.demo.generated.EnterScoresRequest;
 import com.example.demo.repository.GamesRepo;
 import com.example.demo.repository.teamsRepository;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 @Service
 public class GamesService {
@@ -104,16 +108,34 @@ public class GamesService {
 
     }
 
-    public HashMap<String, Integer> getLeagueTable(){
+    public List<TableRow> getLeagueTable(){
         List<Team> allTeams = tServ.getAllTeams();
-        HashMap<String, Integer> leagueTable = new HashMap<String, Integer>();
+        Map<String, TableRow> rows = new HashMap<String, TableRow>();
         for (Team team : allTeams){
-            leagueTable.put(team.getTeamName(), 0);
+            TableRow row = new TableRow(team.getTeamName());
+            rows.put(row.getTeamName(), row);
         }
-        System.out.println(leagueTable.toString());
+        // this is going to be a match played, win, loss, points list in that order.
+        List<Games> allGames = gamesRepo.findAll();
+        for (Games game : allGames){
+            TableRow home = rows.get(game.getHomeTeam());
+            TableRow away = rows.get(game.getAwayTeam());
+            if (game.getHomeGoals() > game.getAwayGoals()){
+                home.addWin();
+                away.addLoss();
+            } else if (game.getAwayGoals() > game.getHomeGoals()){
+                away.addWin();
+                home.addLoss();
+            } else {
+                home.addDraw();
+                away.addDraw();
+            }
+        }
 
+        List<TableRow> table = new ArrayList<>(rows.values());
+        table.sort((a, b) -> b.getPoints() - a.getPoints());
 
-        return leagueTable;
+        return table;
     }
 
     public boolean recordGame(EnterScoresRequest request){
