@@ -38,6 +38,13 @@ public class PositionEndpoint {
         System.out.println(exists);
         EnterScoresResponse resp = new EnterScoresResponse();
         boolean done = false;
+        Games cleanGame = gServ.cleanGame(game);
+        request.setHomeTeam(cleanGame.getHomeTeam());
+        request.setAwayTeam(cleanGame.getAwayTeam());
+        request.setHomeGoals(cleanGame.getHomeGoals());
+        request.setAwayGoals(cleanGame.getHomeGoals());
+
+        gServ.getLeagueTable();
 
         if (!exists){
             done = gServ.recordGame(request);

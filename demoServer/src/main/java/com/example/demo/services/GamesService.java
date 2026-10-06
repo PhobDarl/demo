@@ -8,18 +8,56 @@ import com.example.demo.repository.teamsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.HashMap;
 
 @Service
 public class GamesService {
     private final GamesRepo gamesRepo;
     private final teamsRepository teamRepo;
+    private final TeamsService tServ;
 
-    public GamesService(GamesRepo gamesRepo, teamsRepository teamRepo){
+    public GamesService(GamesRepo gamesRepo, teamsRepository teamRepo, TeamsService tServ){
         this.gamesRepo = gamesRepo;
         this.teamRepo = teamRepo;
+        this.tServ = tServ;
     }
 
-    List<Games> getGamesByTeamName(String name){
+
+    // goal of this function is that when a team is entered by the user it removes all white space and ensure
+    // capitalisation is the same as the team name already in the db.
+    // mainly just for the strings because if ints werent ints itd have crashed already
+    public Games cleanGame(Games dirtyGame){
+        String dirtyHome = dirtyGame.getHomeTeam();
+        String dirtyAway = dirtyGame.getAwayTeam();
+
+        // trim first
+        dirtyHome = dirtyHome.trim().replaceAll("\\s+", " ");
+        dirtyAway = dirtyAway.trim().replaceAll("\\s+", " ");
+
+        String cleanHome = "";
+        String cleanAway = "";
+        // Now caps
+        List<Team> allTeams = tServ.getAllTeams();
+        System.out.println(allTeams.size());
+        for (Team t : allTeams){
+            System.out.println(t.getTeamName());
+            if (t.getTeamName().equalsIgnoreCase(dirtyHome)){
+                cleanHome = t.getTeamName();
+            } else if (t.getTeamName().equalsIgnoreCase(dirtyAway)){
+                cleanAway = t.getTeamName();
+            }
+        }
+        System.out.println(!(cleanAway.equals("")) && !(cleanHome.equals("")));
+        System.out.println(cleanAway + "    " + cleanHome);
+        if (!(cleanAway.equals("")) && !(cleanHome.equals(""))){
+            dirtyGame.setHomeTeam(cleanHome);
+            dirtyGame.setAwayTeam(cleanAway);
+        }
+
+        return dirtyGame;
+
+    }
+    public List<Games> getGamesByTeamName(String name){
         List<Games> gamesHome;
         List<Games> gamesAway;
         gamesHome = gamesRepo.findAllByHomeTeam(name);
@@ -64,6 +102,18 @@ public class GamesService {
 
         return homeTeamList;
 
+    }
+
+    public HashMap<String, Integer> getLeagueTable(){
+        List<Team> allTeams = tServ.getAllTeams();
+        HashMap<String, Integer> leagueTable = new HashMap<String, Integer>();
+        for (Team team : allTeams){
+            leagueTable.put(team.getTeamName(), 0);
+        }
+        System.out.println(leagueTable.toString());
+
+
+        return leagueTable;
     }
 
     public boolean recordGame(EnterScoresRequest request){
