@@ -34,15 +34,16 @@ public class PositionEndpoint {
         game.setHomeGoals(request.getHomeGoals());
         game.setAwayGoals(request.getAwayGoals());
 
-        boolean exists = gServ.checkIfGameExists(game);
+        Games cleanGame = gServ.cleanGame(game);
+        boolean exists = gServ.checkIfGameExists(cleanGame);
         System.out.println(exists);
         EnterScoresResponse resp = new EnterScoresResponse();
         boolean done = false;
-        Games cleanGame = gServ.cleanGame(game);
+
         request.setHomeTeam(cleanGame.getHomeTeam());
         request.setAwayTeam(cleanGame.getAwayTeam());
         request.setHomeGoals(cleanGame.getHomeGoals());
-        request.setAwayGoals(cleanGame.getHomeGoals());
+        request.setAwayGoals(cleanGame.getAwayGoals());
 
         gServ.getLeagueTable();
 

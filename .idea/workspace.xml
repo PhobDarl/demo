@@ -6,24 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5b9ba2bb-af24-4cec-81fa-776b74c32bda" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/endpoints/PositionEndpoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/endpoints/PositionEndpoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/services/GamesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/services/GamesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoClient/src/main/resources/football.wsdl" beforeDir="false" afterPath="$PROJECT_DIR$/demoClient/src/main/resources/football.wsdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/controllers/helloWorldController.class" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/controllers/helloWorldController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/reports/tests/test/com.example.demo.DemoApplicationTests/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/tests/test/com.example.demo.DemoApplicationTests/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/TEST-com.example.demo.DemoApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/TEST-com.example.demo.DemoApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/output-events.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/output-events.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/results-generic.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/results-generic.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/build/resources/main/templates/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/resources/main/templates/games.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/controllers/helloWorldController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/controllers/helloWorldController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/endpoints/PositionEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/endpoints/PositionEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/services/GamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/services/GamesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/src/test/java/com/example/demo/GamesServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/test/java/com/example/demo/GamesServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/templates/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/templates/games.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +161,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demoClient/src/main/resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demoClient/src/main/resources" />
       <recent name="$PROJECT_DIR$/DemoServer/src/main/java/com/example/demo" />
       <recent name="$PROJECT_DIR$/DemoServer/src/main/resources" />
       <recent name="$PROJECT_DIR$/DemoServer" />

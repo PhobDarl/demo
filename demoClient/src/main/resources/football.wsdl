@@ -101,7 +101,7 @@
   </wsdl:binding>
   <wsdl:service name="FootballPortService">
     <wsdl:port binding="tns:FootballPortSoap11" name="FootballPortSoap11">
-      <soap:address location="http://16.171.149.4:8080/ws"/>
+      <soap:address location="http://localhost:8080/ws"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

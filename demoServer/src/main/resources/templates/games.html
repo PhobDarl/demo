@@ -24,6 +24,9 @@
     <th>
       Away Goals
     </th>
+    <th>
+      Winner
+    </th>
   </tr>
   </thead>
   <tbody id = "teamTable">
@@ -32,6 +35,7 @@
     <td th:text="${game.awayTeam}"></td>
     <td th:text="${game.homeGoals}"></td>
     <td th:text="${game.awayGoals}"></td>
+    <td th:text="${winner[game.gameId]}"></td>
   </tr>
 
 
