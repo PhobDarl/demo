@@ -1,29 +1,33 @@
+<!DOCTYPE html>
 <html lang="en">
 <div th:replace="fragments/header :: header"></div>
 
-<table>
+<table border="1" style="width:300px;margin-left: auto; margin-right: auto;margin-top:20px">
 <thead>
-<tr>
-    <th>
-        Team Name
-    </th>
-    <th>
-        Points
-    </th>
-</tr>
-</thead>
-<tbody id = "teamTable">
-<tr th:each="team: ${teams}">
-    <td>
-        <a th:text="${team.id}" th:href="@{/teams/{id}(id=${team.id})}"></a>
-    </td>
-    <td th:text="${team.teamName}"></td>
-</tr>
+    <tr>
+        <th>
+            Team Name
+        </th>
+        <th>
+            Points
+        </th>
+    </tr>
+    </thead>
+    <tbody id = "teamTable">
+    <tr th:each="team: ${teams}">
+        <td>
+            <a th:text="${team.id}" th:href="@{/teams/{id}(id=${team.id})}"></a>
+        </td>
+        <td>
+            <a th:text="${team.teamName}" th:href="@{/teams/{id}(id=${team.id})}"></a>
+        </td>
+    </tr>
 
 
-</tbody>
+    </tbody>
 
-</table>
+    </table>
+
 <head> <title> Teams </title></head>
 <body>This is where the teams display page will be </body>
 </html>

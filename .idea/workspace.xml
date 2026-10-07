@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b9ba2bb-af24-4cec-81fa-776b74c32bda" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/entities/Owner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/entities/ShootOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/reports/tests/test/com.example.demo.DemoApplicationTests/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/tests/test/com.example.demo.DemoApplicationTests/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/TEST-com.example.demo.DemoApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/TEST-com.example.demo.DemoApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/output-events.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/output-events.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/results-generic.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/results-generic.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/build/resources/main/templates/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/resources/main/templates/games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/build/resources/main/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/resources/main/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/build/resources/main/templates/teams.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/resources/main/templates/teams.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/templates/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/templates/games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/templates/teams.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/templates/teams.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,41 +124,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.Build demo.executor": "Run",
-    "Gradle.demo [bootRun].executor": "Run",
-    "Gradle.demo [build].executor": "Run",
-    "Gradle.demo [clean].executor": "Run",
-    "Gradle.demo [compileJava].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.DemoApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Phase-2",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/phoebedarling/IdeaProjects/demo/demoClient/src/main/resources",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.Build demo.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.demo [bootRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.demo [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.demo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.demo [compileJava].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/phoebedarling/IdeaProjects/demo/demoClient/src/main/resources&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/demoClient/src/main/resources" />
