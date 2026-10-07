@@ -68,4 +68,36 @@ public class ObjectFactory {
         return new TeamXSD();
     }
 
+    /**
+     * Create an instance of {@link EnterOwnerRequest }
+     * 
+     */
+    public EnterOwnerRequest createEnterOwnerRequest() {
+        return new EnterOwnerRequest();
+    }
+
+    /**
+     * Create an instance of {@link EnterOwnerResponse }
+     * 
+     */
+    public EnterOwnerResponse createEnterOwnerResponse() {
+        return new EnterOwnerResponse();
+    }
+
+    /**
+     * Create an instance of {@link EnterShootOutRequest }
+     * 
+     */
+    public EnterShootOutRequest createEnterShootOutRequest() {
+        return new EnterShootOutRequest();
+    }
+
+    /**
+     * Create an instance of {@link EnterShootOutResponse }
+     * 
+     */
+    public EnterShootOutResponse createEnterShootOutResponse() {
+        return new EnterShootOutResponse();
+    }
+
 }

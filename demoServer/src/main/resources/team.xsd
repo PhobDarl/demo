@@ -49,4 +49,43 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="enterOwnerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ownerId" type="xs:long"/>
+                <xs:element name="teamId" type="xs:long"/>
+                <xs:element name="ownerName" type="xs:string"/>
+                <xs:element name="startDate" type="xs:string"/>
+                <xs:element name="endDate" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="enterOwnerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="done" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="enterShootOutRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="gameId" type="xs:long"/>
+                <xs:element name="homeGoals" type="xs:int"/>
+                <xs:element name="awayGoals" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+
+    <xs:element name="enterShootOutResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="done" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema>
