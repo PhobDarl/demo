@@ -20,13 +20,13 @@ public class DemoApplication {
 
     }
 
-    // This function checks if the db has a list of the teams in the league and if not it adds them to the db
+    // This function checks if the db has a list of the teams in the league and if not it adds them to the db on start up
     @Bean
     CommandLineRunner seedTeams(teamsRepository repo) {
         return args -> {
 
             if (repo.count() > 0) return;
-
+            // all the teams in the league
             List<String> names = List.of(
                     "Manchester City", "Tottenham", "Chelsea",
                     "London City Lionesses", "Liverpool", "Everton",
@@ -34,13 +34,14 @@ public class DemoApplication {
                     "West Ham", "Brighton", "Birmingham City",
                     "Aston Villa", "Charlton");
 
+            // make them team objects
             List<Team> teamList = new ArrayList<>();
             for (String name : names) {
                 Team team = new Team();
                 team.setTeamName(name);
                 teamList.add(team);
             }
-
+            // save to repo
             repo.saveAll(teamList);
         };
     }

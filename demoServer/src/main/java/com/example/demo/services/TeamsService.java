@@ -18,7 +18,7 @@ public class TeamsService {
         this.gamesRepo = gamesRepo;
         this.teamsRepository = teamsRepository;
     }
-
+    // does what it says on the tin
     public static List<Team> getAllTeams(){
         return teamsRepository.findAll();
     }
