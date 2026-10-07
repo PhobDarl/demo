@@ -53,6 +53,7 @@ public class Main {
     }
 
     public static int menuPage() {
+        // just displays options and takes choice and does some error catching
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\nWelcome to the world's best Football Games Display and Inputter");
@@ -69,7 +70,7 @@ public class Main {
             }
         }
     }
-
+    // displays the teams
     public static void displayTeams (List<String> justNames, List<String> justIds ){
         System.out.println("LIST OF TEAMS TO CHOOSE FROM:  ");
         for (int i = 0 ; i < justNames.size() ; i ++) {
@@ -78,7 +79,7 @@ public class Main {
     }
 
 
-
+    // takes user input for entering a match
     public static List<String> userInput(List<String> justNames){
         List <String> detailsToSend = new ArrayList<String>();
         boolean valid = false;
@@ -111,7 +112,7 @@ public class Main {
         }
         return detailsToSend;
     }
-
+    // gets all the teams from the server
     public static List<TeamXSD> fetchTeams( FootballPort port){
             GetTeamsRequest req = new GetTeamsRequest();
             req.setHowMany("all");

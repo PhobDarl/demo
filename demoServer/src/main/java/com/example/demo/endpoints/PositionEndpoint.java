@@ -25,16 +25,21 @@ public class PositionEndpoint {
 
     @PayloadRoot(namespace = "https://www.phobdarl.com/xml/football", localPart = "enterScoresRequest")
     @ResponsePayload
+
+    // Endpoint for a user entering a game
     public EnterScoresResponse setGame(@RequestPayload EnterScoresRequest request){
 
         int position;
         Games game = new Games();
+        // extracts the data from the request
         game.setHomeTeam(request.getHomeTeam());
         game.setAwayTeam(request.getAwayTeam());
         game.setHomeGoals(request.getHomeGoals());
         game.setAwayGoals(request.getAwayGoals());
 
+        // cleans the game so it is in the right format for the database ( and checks)
         Games cleanGame = gServ.cleanGame(game);
+        // boolean flag so same game is not entered twice
         boolean exists = gServ.checkIfGameExists(cleanGame);
         System.out.println(exists);
         EnterScoresResponse resp = new EnterScoresResponse();
@@ -47,7 +52,9 @@ public class PositionEndpoint {
 
         gServ.getLeagueTable();
 
+        //commits to database if it is not a duplicate game
         if (!exists){
+            // sends back flag to say whether its been done or not
             done = gServ.recordGame(request);
         }
 

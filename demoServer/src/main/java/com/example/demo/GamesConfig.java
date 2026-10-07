@@ -16,6 +16,8 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 public class GamesConfig {
 
+    // servlet exposes the wsdl to the internet
+    // also directs soap requests and routes them to the correct endpoint
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext context){
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -26,6 +28,7 @@ public class GamesConfig {
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
 
+    // this one creates the WSDL that is used as the 'contract' for clients based on the team.xsd
     @Bean(name = "football")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema footballSchema){
 
@@ -40,6 +43,7 @@ public class GamesConfig {
         return wsdl11Definition;
     }
 
+    // object that allows spring to use the xsd
     @Bean
     public XsdSchema footballSchema() {
         return new SimpleXsdSchema(

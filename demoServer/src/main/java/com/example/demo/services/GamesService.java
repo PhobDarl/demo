@@ -92,7 +92,7 @@ public class GamesService {
         // id gets passed in by browser so have that, find team name
         String teamName = teamRepo.getReferenceById(id).getTeamName();
         System.out.println(teamName);
-        // find every game where team was home team
+        // find every game where team was home team or away team
         List<Games> homeTeamList = gamesRepo.findAllByHomeTeam(teamName);
         List<Games> awayTeamList = gamesRepo.findAllByAwayTeam(teamName);
 
@@ -101,22 +101,24 @@ public class GamesService {
         for (Games game : homeTeamList){
             System.out.println(game.getAwayGoals());
         }
-
-
-
+        // return the combined list
         return homeTeamList;
 
     }
 
+    // Creates the league table based on the matches played
     public List<TableRow> getLeagueTable(){
+        // gets all teams and adds them to a map
         List<Team> allTeams = tServ.getAllTeams();
+        // table row is just a class that contains a teams wins, losses e.t.c.
         Map<String, TableRow> rows = new HashMap<String, TableRow>();
         for (Team team : allTeams){
             TableRow row = new TableRow(team.getTeamName());
             rows.put(row.getTeamName(), row);
         }
-        // this is going to be a match played, win, loss, points list in that order.
+
         List<Games> allGames = gamesRepo.findAll();
+        // updates the each class based on the team
         for (Games game : allGames){
             TableRow home = rows.get(game.getHomeTeam());
             TableRow away = rows.get(game.getAwayTeam());
@@ -133,17 +135,20 @@ public class GamesService {
         }
 
         List<TableRow> table = new ArrayList<>(rows.values());
+        // sorts it so that the table is ordered by the points
         table.sort((a, b) -> b.getPoints() - a.getPoints());
 
         return table;
     }
 
+    // saves the game to the database
     public boolean recordGame(EnterScoresRequest request){
 
         int homeGoals = request.getHomeGoals();
         int awayGoals = request.getAwayGoals();
 
         boolean draw = false;
+        // arbitrary - never used but does calculate winner
         if (homeGoals-awayGoals < 0){
             String winner = request.getAwayTeam();
         } else if ( homeGoals - awayGoals > 0) {
@@ -153,6 +158,7 @@ public class GamesService {
         }
 
         try{
+            // saves to database
             Games game = new Games();
             game.setAwayGoals(awayGoals);
             game.setHomeGoals(homeGoals);

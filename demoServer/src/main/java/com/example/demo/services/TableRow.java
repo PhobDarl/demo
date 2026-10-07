@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+
+// used in league table
 public class TableRow {
 
     private String teamName;
