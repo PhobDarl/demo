@@ -29,7 +29,7 @@ def generatedSourcesDirectory =
         layout.buildDirectory.dir('generated/sources/wsimport')
 
 tasks.register('downloadWsdl', Download) {
-    src 'http://localhost:8080/ws/football.wsdl'
+    src 'http://16.171.149.4:8080/ws/football.wsdl'
     dest 'src/main/resources'
 }
 

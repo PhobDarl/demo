@@ -22,4 +22,5 @@ public class TeamsService {
     public static List<Team> getAllTeams(){
         return teamsRepository.findAll();
     }
+
 }

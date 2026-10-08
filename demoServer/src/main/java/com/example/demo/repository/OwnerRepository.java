@@ -11,4 +11,5 @@ public interface OwnerRepository extends JpaRepository<Owner, Long> {
 
     List<Owner> findByTeamId(Long id);
 
+    List<Owner> findAll();
 }

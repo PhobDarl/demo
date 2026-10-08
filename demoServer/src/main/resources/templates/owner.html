@@ -1,0 +1,34 @@
+<html lang="en">
+<div th:replace="fragments/header :: header"></div>
+<head style="margin-left: auto; margin-right: auto">
+    <title>Best Football Tracker Ever</title>
+</head>
+<table border="1" style="width:300px;margin-left: auto; margin-right: auto;margin-top:20px">
+    <thead>
+    <tr>
+
+        <th>
+            Owner Name
+        </th>
+        <th>
+            Owned Team
+        </th>
+        <th>
+            Start Month
+        </th>
+        <th>
+            End Month
+        </th>
+    </tr>
+    </thead>
+    <tbody id = "ownerHistory">
+    <tr th:each="owner: ${owners}">
+        <td th:text="${owner.ownerName}"></td>
+        <td th:text="${teamByOwner[owner.ownerId]}"></td>
+        <td th:text="${owner.startDate}"></td>
+        <td th:text="${owner.endDate}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</html>

@@ -7,6 +7,7 @@ import com.example.demo.entities.Games;
 import com.example.demo.entities.Owner;
 import com.example.demo.entities.ShootOut;
 import com.example.demo.repository.OwnerRepository;
+import com.example.demo.repository.teamsRepository;
 import com.example.demo.services.TeamsService;
 import com.example.demo.repository.ShootOutRepository;
 import org.springframework.stereotype.Controller;
@@ -28,12 +29,14 @@ public class helloWorldController {
     private final TeamsService teamsService;
     private OwnerRepository oRepo;
     private ShootOutRepository soRepo;
+    private teamsRepository tRepo;
 
-    public helloWorldController(GamesService gamesService, TeamsService teamsService, OwnerRepository oRepo, ShootOutRepository soRepo){
+    public helloWorldController(GamesService gamesService, TeamsService teamsService, OwnerRepository oRepo, ShootOutRepository soRepo, teamsRepository tRepo){
         this.gamesService = gamesService;
         this.teamsService = teamsService;
         this.oRepo = oRepo;
         this.soRepo = soRepo;
+        this.tRepo = tRepo;
     }
 
     // home page
@@ -44,6 +47,20 @@ public class helloWorldController {
         model.addAttribute("leagueTable", table);
 
         return "home";
+    }
+
+    @GetMapping("/owner")
+    public String owners(Model model){
+        List<Owner> oList = oRepo.findAll();
+        Map<Long, String> ownerTeamName = new HashMap<Long, String>();
+        for (Owner o : oList){
+            ownerTeamName.put(o.getOwnerId(), tRepo.findById(o.getTeamId()).get().getTeamName());
+        }
+
+        model.addAttribute("owners", oList);
+        model.addAttribute("teamByOwner", ownerTeamName);
+
+        return "owner";
     }
 
 
