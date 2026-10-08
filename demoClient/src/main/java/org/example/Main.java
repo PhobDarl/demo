@@ -4,6 +4,8 @@ import org.example.generated.*;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Main {
@@ -18,9 +20,11 @@ public class Main {
         List<TeamXSD> teams = fetchTeams(port);
         List<String> justNames = new ArrayList<String>();
         List<String> justIds = new ArrayList<String>();
+        Map<String, Long> idFromName = new HashMap<String, Long>();
         for (TeamXSD team : teams) {
             justNames.add(team.getName());
             justIds.add(String.valueOf(team.getId()));
+            idFromName.put(team.getName(), team.getId());
         }
 
         while(true) {
@@ -44,6 +48,26 @@ public class Main {
 
                 System.out.println(response.isDone());
 
+            } else if( decision == 3){
+                Scanner sc = new Scanner(System.in);
+                EnterOwnerRequest ownerRequest = new EnterOwnerRequest();
+                System.out.println("Enter the owner name");
+                String ownersName = sc.nextLine().trim();
+                System.out.println("Enter the team they own");
+                String ownedTeamName = sc.nextLine().trim();
+                System.out.println("Enter the month of the start date (e.g. Jun, May, Oct)");
+                String startMonth = sc.nextLine();
+
+                Long teamId = idFromName.get(ownedTeamName);
+
+                ownerRequest.setOwnerName(ownersName);
+                ownerRequest.setTeamId(teamId);
+                ownerRequest.setStartDate(startMonth);
+                ownerRequest.setEndDate("none");
+
+                EnterOwnerResponse resp = port.enterOwner(ownerRequest);
+
+
             } else {
                 // quit
                 System.out.println("Bye Bye");
@@ -58,13 +82,13 @@ public class Main {
         while (true) {
             System.out.println("\nWelcome to the world's best Football Games Display and Inputter");
             System.out.println("Please choose from the following options:");
-            System.out.println("1. Show list of teams\n2. Input a new game\n3. Quit");
+            System.out.println("1. Show list of teams\n2. Input a new game\n3. Assign a new Owner \n4. Quit");
             try {
                 int decision = Integer.parseInt(sc.nextLine().trim());
-                if (decision >= 1 && decision <= 3) {
+                if (decision >= 1 && decision <= 4) {
                     return decision;
                 }
-                System.out.println("Please pick 1, 2 or 3.");
+                System.out.println("Please pick 1, 2, 3 or 4.");
             } catch (NumberFormatException e) {
                 System.out.println("Enter a number, try again");
             }
@@ -83,8 +107,9 @@ public class Main {
     public static List<String> userInput(List<String> justNames){
         List <String> detailsToSend = new ArrayList<String>();
         boolean valid = false;
+        boolean areInt = false;
         Scanner sc = new Scanner(System.in);
-        while( !valid) {
+        while( !valid || !areInt) {
             System.out.println("Enter the home team");
             String homeTeamInp = sc.nextLine().trim();
             System.out.println("Enter the away team");
@@ -101,9 +126,21 @@ public class Main {
             valid = lowerNames.contains(homeTeamInp.trim().toLowerCase())
                     && lowerNames.contains(awayTeamInp.trim().toLowerCase());
 
+
+            try {
+                int homeGoals = Integer.parseInt(homeGoalsInp);
+                int awayGoals = Integer.parseInt(awayGoalsInp);
+                areInt = true;
+
+            } catch (Exception e) {
+                System.out.println( e.toString());
+            }
+
             if (!valid){
                 System.out.println("The team names you entered are not valid. Please try again.");
-            } else {
+            } else if (!areInt){
+                System.out.println("Please enter integers e.g. 4 NOT four");
+            }else {
                 detailsToSend.add(homeTeamInp);
                 detailsToSend.add(awayTeamInp);
                 detailsToSend.add(homeGoalsInp);

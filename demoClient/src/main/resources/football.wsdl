@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="https://www.phobdarl.com/xml/football" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://www.phobdarl.com/xml/football" targetNamespace="https://www.phobdarl.com/xml/football">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="https://www.phobdarl.com/xml/football" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://www.phobdarl.com/xml/football" targetNamespace="https://www.phobdarl.com/xml/football">
   <wsdl:types>
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://www.phobdarl.com/xml/football">
     <!-- Request that comes from the client, putting in scores -->
@@ -46,6 +45,44 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="enterOwnerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ownerId" type="xs:long"/>
+                <xs:element name="teamId" type="xs:long"/>
+                <xs:element name="ownerName" type="xs:string"/>
+                <xs:element name="startDate" type="xs:string"/>
+                <xs:element name="endDate" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="enterOwnerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="done" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="enterShootOutRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="gameId" type="xs:long"/>
+                <xs:element name="homeGoals" type="xs:int"/>
+                <xs:element name="awayGoals" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="enterShootOutResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="done" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="enterScoresRequest">
@@ -56,12 +93,28 @@
     <wsdl:part element="tns:enterScoresResponse" name="enterScoresResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="enterShootOutResponse">
+    <wsdl:part element="tns:enterShootOutResponse" name="enterShootOutResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getTeamsResponse">
     <wsdl:part element="tns:getTeamsResponse" name="getTeamsResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="enterOwnerRequest">
+    <wsdl:part element="tns:enterOwnerRequest" name="enterOwnerRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enterShootOutRequest">
+    <wsdl:part element="tns:enterShootOutRequest" name="enterShootOutRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getTeamsRequest">
     <wsdl:part element="tns:getTeamsRequest" name="getTeamsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enterOwnerResponse">
+    <wsdl:part element="tns:enterOwnerResponse" name="enterOwnerResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="FootballPort">
@@ -71,10 +124,22 @@
       <wsdl:output message="tns:enterScoresResponse" name="enterScoresResponse">
     </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="enterShootOut">
+      <wsdl:input message="tns:enterShootOutRequest" name="enterShootOutRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:enterShootOutResponse" name="enterShootOutResponse">
+    </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getTeams">
       <wsdl:input message="tns:getTeamsRequest" name="getTeamsRequest">
     </wsdl:input>
       <wsdl:output message="tns:getTeamsResponse" name="getTeamsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enterOwner">
+      <wsdl:input message="tns:enterOwnerRequest" name="enterOwnerRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:enterOwnerResponse" name="enterOwnerResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -89,12 +154,30 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="enterShootOut">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="enterShootOutRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enterShootOutResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getTeams">
       <soap:operation soapAction=""/>
       <wsdl:input name="getTeamsRequest">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getTeamsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enterOwner">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="enterOwnerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enterOwnerResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>

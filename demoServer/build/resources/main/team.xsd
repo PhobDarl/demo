@@ -77,7 +77,6 @@
                 <xs:element name="awayGoals" type="xs:int"/>
             </xs:sequence>
         </xs:complexType>
-
     </xs:element>
 
     <xs:element name="enterShootOutResponse">

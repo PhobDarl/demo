@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'de.undercouch.download' version '5.6.0'
 }
 
 group = 'org.example'
@@ -26,6 +27,11 @@ dependencies {
 
 def generatedSourcesDirectory =
         layout.buildDirectory.dir('generated/sources/wsimport')
+
+tasks.register('downloadWsdl', Download) {
+    src 'http://localhost:8080/ws/football.wsdl'
+    dest 'src/main/resources'
+}
 
 tasks.register('wsimport', JavaExec) {
     group = "soap"

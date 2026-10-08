@@ -2,10 +2,14 @@ package com.example.demo.endpoints;
 
 import com.example.demo.entities.Team;
 import com.example.demo.entities.Games;
+import com.example.demo.entities.Owner;
+import com.example.demo.entities.ShootOut;
 import com.example.demo.generated.*;
 
 import com.example.demo.services.GamesService;
 import com.example.demo.services.TeamsService;
+import com.example.demo.services.OwnerService;
+
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -18,9 +22,11 @@ import java.util.List;
 public class PositionEndpoint {
 
     private final GamesService gServ;
+    private final OwnerService oServ;
 
-    public PositionEndpoint(GamesService gServ){
+    public PositionEndpoint(GamesService gServ, OwnerService oServ){
         this.gServ = gServ;
+        this.oServ = oServ;
     }
 
     @PayloadRoot(namespace = "https://www.phobdarl.com/xml/football", localPart = "enterScoresRequest")
@@ -79,6 +85,22 @@ public class PositionEndpoint {
             }
         }
 
+        return resp;
+    }
+
+    @PayloadRoot(namespace ="https://www.phobdarl.com/xml/football", localPart = "enterOwnerRequest")
+    @ResponsePayload
+    public EnterOwnerResponse addNewOwner(@RequestPayload EnterOwnerRequest request){
+        Owner newOwner = new Owner();
+        newOwner.setTeamId(request.getTeamId());
+        newOwner.setOwnerName(request.getOwnerName());
+        newOwner.setStartDate(request.getStartDate());
+        newOwner.setEndDate(request.getEndDate());
+
+        boolean done = oServ.saveNewOwner(newOwner);
+
+        EnterOwnerResponse resp = new EnterOwnerResponse();
+        resp.setDone(done);
         return resp;
     }
 

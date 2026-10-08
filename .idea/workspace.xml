@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b9ba2bb-af24-4cec-81fa-776b74c32bda" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/repository/OwnerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/services/OwnerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoClient/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/demoClient/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoClient/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoClient/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoClient/src/main/resources/football.wsdl" beforeDir="false" afterPath="$PROJECT_DIR$/demoClient/src/main/resources/football.wsdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,17 +19,17 @@
       <change beforePath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/.gradle/9.7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/endpoints/PositionEndpoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/endpoints/PositionEndpoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/services/TableRow.class" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/classes/java/main/com/example/demo/services/TableRow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/libs/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/problems/problems-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/reports/tests/test/com.example.demo.DemoApplicationTests/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/tests/test/com.example.demo.DemoApplicationTests/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/build/resources/main/team.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/resources/main/team.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/TEST-com.example.demo.DemoApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/TEST-com.example.demo.DemoApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/output-events.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/output-events.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/results-generic.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/test-results/test/binary/results-generic.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/endpoints/FootballEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/endpoints/PositionEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/endpoints/PositionEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/java/com/example/demo/endpoints/PositionEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demoServer/src/main/resources/team.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/demoServer/src/main/resources/team.xsd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
