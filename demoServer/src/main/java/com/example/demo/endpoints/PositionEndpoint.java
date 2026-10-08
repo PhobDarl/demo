@@ -10,6 +10,7 @@ import com.example.demo.services.GamesService;
 import com.example.demo.services.TeamsService;
 import com.example.demo.services.OwnerService;
 
+
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -101,6 +102,20 @@ public class PositionEndpoint {
 
         EnterOwnerResponse resp = new EnterOwnerResponse();
         resp.setDone(done);
+        return resp;
+    }
+
+    @PayloadRoot(namespace ="https://www.phobdarl.com/xml/football", localPart = "enterShootOutRequest")
+    @ResponsePayload
+    public EnterShootOutResponse enterShootOut(@RequestPayload EnterShootOutRequest request){
+        ShootOut so = new ShootOut();
+        so.setGameId(request.getGameId());
+        so.setHomeGoals(request.getHomeGoals());
+        so.setAwayGoals(request.getAwayGoals());
+
+        EnterShootOutResponse resp = new EnterShootOutResponse();
+        resp.setDone(true);
+
         return resp;
     }
 

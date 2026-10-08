@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Main {
+
+
     public static void main(String[] args) {
         // this contains all the information e.g. port needed to send a req
         FootballPortService serv = new FootballPortService();
@@ -49,20 +51,15 @@ public class Main {
                 System.out.println(response.isDone());
 
             } else if( decision == 3){
-                Scanner sc = new Scanner(System.in);
+                System.out.println("In Progress");
+                Map<String, String> input = ownerUserInput(justNames);
+                Long teamId = idFromName.get(input.get("OwnedTeamName"));
+
                 EnterOwnerRequest ownerRequest = new EnterOwnerRequest();
-                System.out.println("Enter the owner name");
-                String ownersName = sc.nextLine().trim();
-                System.out.println("Enter the team they own");
-                String ownedTeamName = sc.nextLine().trim();
-                System.out.println("Enter the month of the start date (e.g. Jun, May, Oct)");
-                String startMonth = sc.nextLine();
 
-                Long teamId = idFromName.get(ownedTeamName);
-
-                ownerRequest.setOwnerName(ownersName);
+                ownerRequest.setOwnerName(input.get("OwnerName"));
                 ownerRequest.setTeamId(teamId);
-                ownerRequest.setStartDate(startMonth);
+                ownerRequest.setStartDate(input.get("StartMonth"));
                 ownerRequest.setEndDate("none");
 
                 EnterOwnerResponse resp = port.enterOwner(ownerRequest);
@@ -75,6 +72,50 @@ public class Main {
             }
         }
     }
+
+    public static Map<String, String> ownerUserInput(List<String> justNames){
+        List<String> months = List.of("Jan", "Feb", "Mar", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+        Scanner sc = new Scanner(System.in);
+        Map<String, String> ownerReq = new HashMap<String, String>();
+        EnterOwnerRequest ownerRequest = new EnterOwnerRequest();
+        boolean valid = false;
+        while(!valid) {
+            System.out.println("Enter the owner name");
+            String ownersName = sc.nextLine().trim();
+            System.out.println("Enter the team they own");
+            String ownedTeamName = sc.nextLine().trim();
+            List<String> lowerNames = justNames.stream()
+                    .map(String::toLowerCase)
+                    .toList();
+
+            valid = lowerNames.contains(ownedTeamName.trim().toLowerCase());
+            System.out.println("Enter the starting month in format: (e.g. Jun, May, Oct)");
+            String startMonth = sc.nextLine();
+            valid = valid && months.contains(startMonth);
+
+
+            if (valid){
+                ownerReq.put("OwnerName", ownersName);
+                ownerReq.put("OwnedTeamName", ownedTeamName);
+                ownerReq.put("StartMonth", startMonth);
+                return ownerReq;
+
+            } else {
+                System.out.println("Team didnt exist or invalid month, try again: \n");
+            }
+        }
+        return ownerReq;
+
+
+
+
+
+
+
+
+
+    }
+
 
     public static int menuPage() {
         // just displays options and takes choice and does some error catching

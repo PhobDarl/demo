@@ -2,8 +2,13 @@ package com.example.demo.controllers;
 
 
 import com.example.demo.services.GamesService;
+import com.example.demo.services.ShootOutService;
 import com.example.demo.entities.Games;
+import com.example.demo.entities.Owner;
+import com.example.demo.entities.ShootOut;
+import com.example.demo.repository.OwnerRepository;
 import com.example.demo.services.TeamsService;
+import com.example.demo.repository.ShootOutRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +26,16 @@ public class helloWorldController {
 
     private final GamesService gamesService;
     private final TeamsService teamsService;
+    private OwnerRepository oRepo;
+    private ShootOutRepository soRepo;
 
-    public helloWorldController(GamesService gamesService, TeamsService teamsService){
+    public helloWorldController(GamesService gamesService, TeamsService teamsService, OwnerRepository oRepo, ShootOutRepository soRepo){
         this.gamesService = gamesService;
         this.teamsService = teamsService;
+        this.oRepo = oRepo;
+        this.soRepo = soRepo;
     }
+
     // home page
     @GetMapping("/")
     public String home(Model model){
@@ -60,12 +70,20 @@ public class helloWorldController {
                 winnerByGameId.put(gameId, game.getHomeTeam());
             } else{
                 winnerByGameId.put(gameId, "Draw");
+                ShootOut shootOut = soRepo.findByGameId(gameId);
+                if (shootOut != null){
+                    winnerByGameId.put(gameId, shootOut.toString());
+                }
             }
-
         }
+
+        // this gets a key value list of all shoot out games based on the id of the team
+        List<Owner> ownerByTeamId = oRepo.findByTeamId(id);
+
         // displays game table and winner
         model.addAttribute("games", games);
         model.addAttribute("winner", winnerByGameId);
+        model.addAttribute("owners", ownerByTeamId);
 
         return "games";
     }

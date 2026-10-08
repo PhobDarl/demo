@@ -154,6 +154,8 @@ public class GamesService {
         } else if ( homeGoals - awayGoals > 0) {
             String winner = request.getHomeTeam();
         } else{
+            // only have shoot out if draw
+
             draw = true;
         }
 
